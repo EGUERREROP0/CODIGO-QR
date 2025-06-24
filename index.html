@@ -17,6 +17,8 @@
         <div class="profile">
             <img src="./perfil.png" alt="Foto de perfil">
             <div class="info">
+                <p>Estudiante de Diseño y Desarrollo de Software, con conocimientos en Node.js, TS, JS, React y Flutter. Me destaco por mi adaptabilidad,
+                creatividad y ganas constantes de aprender. Busco aplicar y fortalecer mis habilidades en entornos reales.</p>
                 <h2>Erminio Guerrero Paredes</h2>
                 <p>📞 +51 927 386 021</p>
                 <p>✉️ erminio.guerrero@tecsup.edu.pe</p>
@@ -49,11 +51,33 @@
             <a href="./CV_U-Erminio Guerrero.docx" download title="Descargar CV">
                 <i class="fas fa-file-lines"></i>
             </a>
-            <a href="#" title="Otro"><i class="fas fa-star"></i></a>
+            <a href="#" id="shareButton" title="Compartir">
+                <i class="fas fa-share-alt"></i>
+            </a>
+              
               
         </div>
         
     </div>
+
+    <script>
+        document.getElementById('shareButton').addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'Perfil de Erminio Guerrero',
+                        text: 'Conoce el perfil profesional de Erminio Guerrero.',
+                        url: window.location.href
+                    });
+                } catch (error) {
+                    console.error('Error al compartir:', error);
+                }
+            } else {
+                alert('La función de compartir no es compatible con tu navegador.');
+            }
+        });
+    </script>
+      
 </body>
 
 </html>
